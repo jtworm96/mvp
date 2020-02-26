@@ -12,9 +12,9 @@ class App extends React.Component {
 
   render () {
     return (
-      <>
-
-      </>
+      <div class='app'>
+      <h1>Parent.io</h1>
+      </div>
     );
   }
 };
