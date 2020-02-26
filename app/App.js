@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './style.sass';
 import axios from 'axios';
+import Maps from './components/map.js'
 
 class App extends React.Component {
   constructor (props) {
@@ -12,8 +13,11 @@ class App extends React.Component {
 
   render () {
     return (
-      <div class='app'>
-      <h1>Parent.io</h1>
+      <div className='app'>
+        <h1>Parent.io</h1>
+        <div id='map'>
+          <Maps/>
+        </div>
       </div>
     );
   }
