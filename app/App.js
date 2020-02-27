@@ -3,6 +3,7 @@ import './style.sass';
 import axios from 'axios';
 import Maps from './components/map.js'
 import Header from './components/header.js'
+import InfoCard from './components/imformationCard.js'
 
 class App extends React.Component {
   constructor (props) {
@@ -35,6 +36,7 @@ class App extends React.Component {
         <div className='app'>
           <Header/>
           <Maps state={this.state}/>
+          {/* map over info brought in to create the info cards */}
         </div>
       );
     }
