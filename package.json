@@ -1,6 +1,6 @@
 {
-  "name": "boiler-plate",
-  "version": "1.0.0",
+  "name": "parent.io",
+  "version": "1.0.1",
   "description": "Boiler plate for myself",
   "main": "index.html",
   "scripts": {
