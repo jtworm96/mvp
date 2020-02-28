@@ -11,7 +11,17 @@ class InfoCard extends React.Component {
   render () {
     return (
       <div id='infocard'>
-
+        <div id='infocardnumber'>
+          {this.props.value}
+        </div>
+        <div id='infocardtitle'>
+          {this.props.data.name}
+        </div>
+        <div id='infocardaddress'>
+          {this.props.data.vicinity + ', Texas'}
+        </div>
+        <div>
+        </div>
       </div>
     )
   }

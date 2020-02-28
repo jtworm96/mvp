@@ -12,24 +12,32 @@ class Maps extends React.Component {
   render () {
     return (
         <div id='map'>
-        <Map id='map'
+        <Map
             google = {this.props.google}
             bootstrapURLKeys={{
               key:'AIzaSyAjLZuVVCCvOzD1mGHxNw9ioIsjmnPedOQ',
               language: 'en',
             }}
-            zoom = {14}
+            zoom = {12}
             yesIWantToUseGoogleMapApiInternals
             initialCenter = {{ lat: this.props.state.lat, lng: this.props.state.lng}}
             onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-            style = {{width: '90%', height: '70%', margin: 'auto'}}
+            style = {{width: '100%', height: '100%', margin: 'auto'}}
         >
-          <Marker id='marker'
-            lat={this.props.state.lat} 
-            lng={this.props.state.lng}
-            text='1'
-            color='blue'
-          />
+          {
+            this.props.state.data.map((data, i) => {
+              return (
+                <Marker  
+                  key={i}
+                  position={{
+                    lat: data.geometry.location.lat, 
+                    lng: data.geometry.location.lng
+                  }}
+                  label={`${i+1}`}
+                />
+              );
+            })
+          }
         </Map>
         </div>
     )
@@ -39,3 +47,6 @@ class Maps extends React.Component {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyAjLZuVVCCvOzD1mGHxNw9ioIsjmnPedOQ'
 })(Maps);
+
+
+                

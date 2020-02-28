@@ -18,13 +18,24 @@ class App extends React.Component {
         lat: crd.latitude,
         lng: crd.longitude,
       }, () => {
-        this.forceUpdate();
+        axios.post('/data', {
+            lat: this.state.lat,
+            lng: this.state.lng
+        })
+        .then((data) => {
+          this.setState({
+            'data': data.data
+          })
+        })
+        .catch((err) => {
+          console.log(err);
+        })
       })
     })
   }
 
   render () {
-    if (!this.state.lat) {
+    if (!this.state.data) {
       return (
         <>
           <Header/>
@@ -36,7 +47,15 @@ class App extends React.Component {
         <div className='app'>
           <Header/>
           <Maps state={this.state}/>
-          {/* map over info brought in to create the info cards */}
+          <div id='infoboxes'>
+          {
+            this.state.data.map((data, i) => {
+              return (
+                <InfoCard data={data} key={i} value={i+1} />
+              );
+            })
+          }
+          </div>
         </div>
       );
     }
