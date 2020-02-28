@@ -10,7 +10,6 @@ class Header extends React.Component {
     return (
       <>
         <div id='title'>Parent.io</div>
-        <button>login</button>
       </>
     )
   }
